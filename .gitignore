@@ -33,3 +33,5 @@
 store/.idea
 store/cmake-build-debug
 .DS_Store
+pyskv/.idea
+pyskv/cmake-build-release
