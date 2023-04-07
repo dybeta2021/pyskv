@@ -19,11 +19,12 @@ PYBIND11_MODULE(pyskv, m) {
                           const bool &,
                           const bool &,
                           const std::string &>())
-            .def("Set", &PySKV::Set)
-            .def("Get", &PySKV::Get)
-            .def("Del", &PySKV::Del)
-            .def("GetCurrentAllKeys", &PySKV::GetCurrentAllKeys)
-            .def("ShowHeader", &PySKV::ShowHeader)
-            .def("ShowCurrentKey", &PySKV::ShowCurrentKey)
-            .def("ShowAllKey", &PySKV::ShowAllKey);
+
+            .def("Set", &PySKV::Set, "Set", py::arg("key"), py::arg("value"), py::arg("value_len"), py::arg("process_lock"), py::arg("thread_lock"))
+            .def("Get", &PySKV::Get, "Get", py::arg("key"))
+            .def("Del", &PySKV::Del, "Del", py::arg("key"), py::arg("process_lock"), py::arg("thread_lock"))
+            .def("GetCurrentAllKeys", &PySKV::GetCurrentAllKeys, "GetCurrentAllKeys")
+            .def("ShowHeader", &PySKV::ShowHeader, "ShowHeader")
+            .def("ShowCurrentKey", &PySKV::ShowCurrentKey, "ShowCurrentKey")
+            .def("ShowAllKey", &PySKV::ShowAllKey, "ShowAllKey");
 }

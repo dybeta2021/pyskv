@@ -196,11 +196,6 @@ public:
     void ShowAllKey() {
         store_->ShowAllKey();
     }
-
-public:
-    py::tuple GetDictFromCtpFuture(const std::string &symbol);
-
-    py::tuple GetDictFromCtpSpot(const std::string &symbol);
 };
 
 #endif//PYSHMKV_INTERFACE_H
