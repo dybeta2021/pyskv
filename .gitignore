@@ -30,3 +30,6 @@
 *.exe
 *.out
 *.app
+store/.idea
+store/cmake-build-debug
+.DS_Store
