@@ -309,7 +309,7 @@ namespace ots::skv {
                 size_t item_size = sizeof(skv_item);
                 size_t k_size = KeyAverageSize;
                 size_t v_size = value_size + 1;
-                size_t shm_size = header_size + (item_size + k_size + v_size * 4) * item_num * 2;
+                size_t shm_size = header_size + (item_size + k_size + v_size * 2) * item_num * 2;
                 SPDLOG_DEBUG("skv size: {}.", shm_size);
                 if (shm_size > GB) {
                     SPDLOG_ERROR("shm-kv size no more than {}, params is {}.", GB, shm_size);
