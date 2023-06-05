@@ -136,6 +136,7 @@ namespace ots::skv {
         }
 
         bool RemoveShm() {
+            SPDLOG_DEBUG("RemoveFile:{}.", file_path_);
             return RemoveFile(file_path_);
         }
 
@@ -166,7 +167,10 @@ namespace ots::skv {
             }
         }
 
-        void *GetShmDataAddress() { return data_; }
+        void *GetShmDataAddress() {
+            SPDLOG_DEBUG("GetShmDataAddress:{}", (void *) data_);
+            return data_;
+        }
     };
 
 }// namespace ots::skv

@@ -58,8 +58,6 @@ inline int key_compare(const void *a, const void *b) {
 
 namespace ots::skv {
     constexpr int KeyAverageSize = 64;
-    // constexpr int ValueMaxSize = 4 * MB;
-
     class Store {
     private:
         // shm
@@ -354,7 +352,7 @@ namespace ots::skv {
                 skv_header_->reader_id = 0;
                 skv_header_->item_max_used = item_num;
                 skv_header_->key_max_used = KeyAverageSize * item_num;
-                skv_header_->value_max_used = (value_size + 1) * item_num * 4;
+                skv_header_->value_max_used = (value_size + 1) * item_num * 2;
                 memset((char *) skv_header_ + sizeof(skv_header), 0, sizeof(skv_item) * item_num * 2);
             }
             skv_address_.item_a_address = (skv_item *) ((char *) skv_header_ + sizeof(skv_header));
