@@ -22,14 +22,14 @@ private:
     std::mutex ptr_thread_lock;
     ots::skv::Store *store_ = nullptr;
 
-private:
-    static void remove_store(const std::string &path) {
-        //todo:添加判断文件是否存在
-        if (remove(const_cast<char *>(path.c_str())) == 0)
-            SPDLOG_INFO("Removed {} succeeded.", const_cast<char *>(path.c_str()));
-        else
-            SPDLOG_WARN("Removed {} failed.", const_cast<char *>(path.c_str()));
-    }
+// private:
+//     static void remove_store(const std::string &path) {
+//         //todo:添加判断文件是否存在
+//         if (remove(const_cast<char *>(path.c_str())) == 0)
+//             SPDLOG_INFO("Removed {} succeeded.", const_cast<char *>(path.c_str()));
+//         else
+//             SPDLOG_WARN("Removed {} failed.", const_cast<char *>(path.c_str()));
+//     }
 
 public:
     PySKV(const std::string &path,
@@ -45,9 +45,9 @@ public:
           const std::string &process_mutex = "process_mutex") {
         create_logger(log_path, log_level, false, false, false, 1, 1);
 
-        if (init_disk) {
-            remove_store(path);
-        }
+        // if (init_disk) {
+        //     remove_store(path);
+        // }
 
         store_ = new ots::skv::Store;
         if (store_->Init(path, count, value_size, write_mode, init_disk, init_disk, 1) != 0) {
